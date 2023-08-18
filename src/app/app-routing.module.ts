@@ -7,6 +7,7 @@ import { ResetPasswordPageComponent } from './pages/account/reset-password-page/
 import { FramePageComponent } from './pages/master/frame-page.component';
 import { CartPageComponent } from './pages/store/cart-page/cart-page.component';
 import { ProductsPageComponent } from './pages/store/products-page/products-page.component';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   {
@@ -14,14 +15,14 @@ const routes: Routes = [
     component: FramePageComponent,
     children: [
       { path: '', component: ProductsPageComponent },
-      { path: 'cart', component: CartPageComponent },
+      { path: 'cart', component: CartPageComponent, canActivate: [AuthService] },
     ]
   },
   {
     path: 'account',
     component: FramePageComponent,
     children: [
-      { path: 'pets', component: PetsPageComponent },
+      { path: 'pets', component: PetsPageComponent, canActivate: [AuthService] },
     ]
   },
   { path: 'login', component: LoginPageComponent },

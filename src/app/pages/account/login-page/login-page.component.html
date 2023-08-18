@@ -27,15 +27,15 @@
             [ngClass]="{'uk-form-danger' : (!form.controls['password'].valid && !form.controls['password'].pristine) }">
         </div>
         <div class="uk-margin uk-text-right">
-        <button href="/" class="uk-button uk-button-default" [disabled]="form.invalid" (click)="submit()">Entrar</button>
+        <button class="uk-button uk-button-default" [disabled]="form.invalid" (click)="submit()">Entrar</button>
         </div>
       </div>
     </form>
 
     <p class="uk-text-center" *ngIf="!busy">
-      <a href="/signup" class="uk-button uk-width-1-1 uk-button-large uk-button-primary uk-maregin-small-bottom">Quero me registrar</a>
+      <a [routerLink]="['/signup']" class="uk-button uk-width-1-1 uk-button-large uk-button-primary uk-maregin-small-bottom">Quero me registrar</a>
       <br>
-      <a href="/reset-password" class="uk-button uk-button-link">Esqueci minha senha</a>
+      <a [routerLink]="['/reset-password']" class="uk-button uk-button-link">Esqueci minha senha</a>
     </p>
   </div>
 </div>
