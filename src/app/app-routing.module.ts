@@ -8,6 +8,7 @@ import { FramePageComponent } from './pages/master/frame-page.component';
 import { CartPageComponent } from './pages/store/cart-page/cart-page.component';
 import { ProductsPageComponent } from './pages/store/products-page/products-page.component';
 import { AuthService } from './services/auth.service';
+import { ProfilePageComponent } from './pages/account/profile-page/profile-page.component';
 
 const routes: Routes = [
   {
@@ -21,8 +22,10 @@ const routes: Routes = [
   {
     path: 'account',
     component: FramePageComponent,
+    canActivate: [AuthService],
     children: [
-      { path: 'pets', component: PetsPageComponent, canActivate: [AuthService] },
+      { path: '', component: ProfilePageComponent },
+      { path: 'pets', component: PetsPageComponent },
     ]
   },
   { path: 'login', component: LoginPageComponent },
